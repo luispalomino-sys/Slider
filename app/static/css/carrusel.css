@@ -1,0 +1,18 @@
+.dot {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dot.active {
+    background-color: #22d3ee;
+    width: 24px;
+    border-radius: 9999px;
+}
+
+.slide-img.active-zoom {
+    transform: scale(1.08);
+}

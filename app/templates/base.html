@@ -1,0 +1,26 @@
+<div class="max-w-4xl mx-auto p-4">
+  <div id="slider-container" class="relative w-full h-[500px] overflow-hidden rounded-2xl shadow-2xl">
+    {% for img in imagenes %}
+    <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out {% if loop.first %}opacity-100 active{% endif %}">
+      <img 
+        src="{{ url_for('static', filename='img/' + img) }}" 
+        alt="Diapositiva {{ loop.index }}" 
+        class="w-full h-full object-cover transform scale-100 transition-transform duration-10000 ease-linear ken-burns"
+      />
+      <div class="absolute bottom-6 left-6 backdrop-blur-md bg-white/20 border border-white/30 p-4 rounded-xl text-white">
+        <p class="text-sm font-semibold uppercase tracking-wider">Imagen {{ loop.index }} de {{ imagenes|length }}</p>
+        <h3 class="text-xl font-bold">{{ img }}</h3>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="flex justify-center gap-2 mt-4">
+    {% for img in imagenes %}
+    <button 
+      class="indicator-btn h-3 rounded-full bg-gray-400 transition-all duration-300 {% if loop.first %}bg-indigo-600 w-8{% else %}w-3{% endif %}"
+      data-slide="{{ loop.index0 }}"
+    ></button>
+    {% endfor %}
+  </div>
+</div>
